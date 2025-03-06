@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Anniversary Surprise</title>
+  <style>
+    body {
+      background-color: white;
+      transition: background-color 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      color: white;
+    }
+
+    #toggleButton {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #4d774f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.5s ease;
+    }
+
+    #candleButton {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #ddac62;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .candle,
+    .sticker,
+    #message,
+    #welcomeMessage {
+      position: absolute;
+      transition: opacity 0.5s ease;
+      display: none;
+      opacity: 0;
+    }
+
+
+
+    .sticker {
+      top: 39%;
+      width: 100px;
+      height: 70%;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+
+
+    #leftSticker {
+      left: 150px;
+      background-image: url(download.gif);
+    }
+
+    #rightSticker {
+      right: 150px;
+      background-image: url(download.gif);
+    }
+
+    #message,
+    #welcomeMessage {
+      font-size: 2em;
+      text-align: center;
+      width: 80%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #welcomeMessage {
+      background-color: transparent;
+      border: none;
+    }
+
+    #toggleButton,
+    #candleButton {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: #db1111;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: opacity 1s ease, transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px#db1111;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%);
+    }
+
+    #toggleButton:hover {
+      background-color: #db1111;
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: #db1111;
+
+    }
+
+    #moveForwardButton {
+      background-color: ec0909;
+      /* Pinkish-red color */
+      color: rgb(6, 0, 0);
+      font-size: 1em;
+      font-weight: bold;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: none;
+      /* Initially hidden */
+      opacity: 0;
+      transition: opacity 1s ease, transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 64, 129, 0.5);
+      position: absolute;
+      left: 50%;
+      top: 70%;
+      transform: translateX(-50%);
+    }
+
+
+
+    #moveForwardButton:hover {
+
+      background-color: #e6005c;
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 6px 15px rgba(230, 0, 92, 0.7);
+
+    }
+
+    #finalParagraph {
+      display: none;
+      opacity: 0;
+      font-size: 3em;
+      text-align: center;
+      transition: opacity 0.5s ease;
+    }
+
+    #buttonsContainer,
+    #responseMessage {
+      transition: opacity 0.5s ease;
+      display: none;
+    }
+
+    .responseButton {
+      padding: 8px 10px;
+      font-size: 1.2em;
+      background-color: #826c75;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .responseButton:hover {
+      background-color: #36d73e;
+    }
+
+    #noButton {
+      position: relative;
+    }
+
+    #noButton.responseButton:hover {
+      background-color: red;
+    }
+
+
+    /* Firework Sticker */
+    #fireworkSticker {
+      width: 300px;
+      height: 300px;
+      background-image: url(Celebrate\ New\ Year\ Sticker\ by\ Zacxophone.gif);
+      /* Change this to your firework sticker */
+      background-size: cover;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #responseMessage {
+      font-size: 3em;
+    }
+   
+    #nextStepButton {
+      background-color: ec0909;
+      /* Pinkish-red color */
+      color: rgb(6, 0, 0);
+      font-size: 1em;
+      font-weight: bold;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: none;
+      /* Initially hidden */
+      opacity: 0;
+      transition: opacity 1s ease, transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(237, 15, 15, 0.5);
+      position: absolute;
+      left: 50%;
+      top: 70%;
+      transform: translateX(-50%);
+    }
+
+    #nextStepButton:hover {
+
+      background-color: hsl(0, 98%, 49%);
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 6px 15px rgba(254, 21, 21, 0.7);
+
+    }
+
+
+
+
+
+
+
+    #celebrateButton {
+      background-color: #eee0e0;
+      /* Pinkish-red color */
+      color: rgb(13, 1, 1);
+      font-size: 1em;
+      font-weight: bold;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: none;
+      /* Initially hidden */
+      opacity: 0;
+      transition: opacity 1s ease, transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 64, 129, 0.5);
+      position: absolute;
+      left: 50%;
+      top: 70%;
+      transform: translateX(-50%);
+    }
+
+    /* Hover effect */
+    #celebrateButton:hover {
+      background-color: #e6005c;
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 6px 15px rgba(230, 0, 92, 0.7);
+    }
+
+    /* Click effect */
+    #celebrateButton:active {
+      transform: translateX(-50%) scale(0.95);
+    }
+
+    #banner {
+      margin-left: 30%;
+      top: 10px;
+      width: 80%;
+      height: 100px;
+      background-image: url(Celebrate\ Party\ Banner\ Sticker.gif);
+    }
+
+    #happyAnniversary {
+      top: 10%;
+      left: 55%;
+      transform: translateX(-50%);
+      width: 65%;
+
+      background-image: url(Happy\ Anniversary\ Sticker.gif);
+    }
+
+    #leftBalloons {
+      left: 100px;
+      top: 30%;
+      width: 20%;
+      height: 100%;
+      background-image: url(mv\ balloon\ Sticker\ by\ Mit\ Vergnügen.gif);
+    }
+
+    #rightBalloons {
+      right: 100px;
+      top: 30%;
+      width: 20%;
+      height: 100%;
+      background-image: url(mv\ balloon\ Sticker\ by\ Mit\ Vergnügen.gif);
+    }
+
+    #partyPopper {
+      top: 20%;
+      left: 100%;
+      transform: translateX(-50%);
+      width: 120%;
+      height: 50%;
+      background-image: url(Celebrate\ New\ Year\ Sticker\ by\ NEIGHBOURHOOD.gif);
+    }
+
+    #cake {
+      top: 65%;
+      left: 65%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 35%;
+      background-image: url(Happy\ Party\ Sticker\ by\ ohdoodledoo.gif);
+    }
+    #banner, #happyAnniversary, #leftBalloons, #rightBalloons, #partyPopper, #cake {
+  display: none;
+  opacity: 0;
+}
+#somethingMoreButton {
+            background-color: #ec0909;
+            color: rgb(232, 207, 207);
+            font-size: 1em;
+            font-weight: bold;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease, transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(237, 15, 15, 0.5);
+            position: absolute;
+            left: 80%;
+            top: 70%;
+            transform: translateX(-50%);
+        }
+
+        #somethingMoreButton:hover {
+            background-color: hsl(0, 98%, 49%);
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 6px 15px rgba(254, 21, 21, 0.7);
+        }
+
+        #iLoveYouMessage,
+        #handInHandMessage {
+            font-size: 3em;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        #wannaHugMe {
+            font-size: 3em;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        #hugSticker {
+            width: 200px;
+            height: 200px;
+            background-image: url(Assets/I\ Love\ You\ Kiss\ Sticker\ by\ Jin.gif); /* Replace with your hug sticker URL */
+            background-size: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        #anniversaryQuestion {
+            font-size: 2em;
+            text-align: center;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .optionButton {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #826c75;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            display: block;
+            margin: 20px auto;
+            display: none; 
+        }
+
+        .optionButton:hover {
+            background-color: #36d73e;
+        }
+
+        #kissingEmoji {
+            font-size: 5em;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        #finalMessage {
+            font-size: 2.5em;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+
+
+  </style>
+</head>
+
+<body>
+  <button id="toggleButton">Turn Light Off </button>
+  <button id="candleButton"> Tap for candle light </button>
+  <div id="leftCandle" class="candle"></div>
+  <div id="rightCandle" class="candle"></div>
+  <div id="leftSticker" class="sticker"></div>
+  <div id="rightSticker" class="sticker"></div>
+  <audio id="backgroundMusic" src="Perfect-(Mr-Jat.in).mp3" loop></audio>
+  <audio id="newMusic1" src="pehla-pyaar-kabir-singh-320-kbps_XXUlo7q9.mp3"></audio>
+  <audio id="newMusic2" src="128-Jeena Jeena - Badlapur 128 Kbps (mp3cut.net).mp3"></audio>
+  <audio id="newMusic3" src="kinna-sona-bhaag-johnny-128-kbps_nUnZ5IvI.mp3"></audio>
+  <div id="welcomeMessage">Welcome Motu!</div>
+  <div id="message">Just like these candles, you light up my life, my love.</div>
+  <button id="moveForwardButton">Ek Question pucchu ? </button>
+  <div id="finalParagraph">Do You Love Me ?</div>
+  <!-- YES & NO Buttons -->
+  <div id="buttonsContainer">
+    <button id="yesButton" class="responseButton">YES😀</button>
+    <button id="noButton" class="responseButton">NO😒</button>
+  </div>
+  <!-- Response Message -->
+  <div id="responseMessage"></div>
+
+  </div>
+
+  <div id="responseMessage"></div>
+  <div id="fireworkSticker"></div> <!-- Firework sticker container -->
+  <button id="nextStepButton" style="display: none; opacity: 0;">Ab Aage Badhe Meri Jaan 😏 </button>
+  <div id="letterMessage" style="display: none;">Warning⚠️: Is gaane mein mere saare unexpressed emotions hain. Side effects mein spontaneous hugging aur uncontrollable smiling ho sakta hai. Bas sunte jao </div> 
+  <button id="celebrateButton">Let's Celebrate Our 3rd Anniversary😄</button>
+  <div id="banner" class="sticker"></div>
+  <div id="happyAnniversary" class="sticker"></div>
+  <div id="leftBalloons" class="sticker"></div>
+  <div id="rightBalloons" class="sticker"></div>
+  <div id="partyPopper" class="sticker"></div>
+  <div id="cake" class="sticker"></div>
+  <button id="somethingMoreButton">Something More👉</button>
+    <div id="iLoveYouMessage">I Love You Forever palak❤️ </div>
+    <div id="handInHandMessage">Hand in Hand, You and Me, Till the End ♾️</div>
+    <div id="wannaHugMe">Wanna Hug Me?</div>
+    <div id="hugSticker"></div>
+    <div id="anniversaryQuestion">Did you like your anniversary gift?</div>
+    <button class="optionButton" data-option="good">Good</button>
+    <button class="optionButton" data-option="veryGood">Very Good</button> 
+    <button class="optionButton" data-option="excellent">Excellent</button>
+    <button class="optionButton" data-option="bestEver">Best Ever!</button>
+    <div id="kissingEmoji">😘</div>
+    <div id="finalMessage">Made with endless love, just for you, from Rishav✨. </div>
+
+  <script>
+    const toggleButton = document.getElementById("toggleButton");
+    const candleButton = document.getElementById("candleButton");
+    const leftCandle = document.getElementById("leftCandle");
+    const rightCandle = document.getElementById("rightCandle");
+    const leftSticker = document.getElementById("leftSticker");
+    const rightSticker = document.getElementById("rightSticker");
+    const backgroundMusic = document.getElementById("backgroundMusic");
+    const message = document.getElementById("message");
+    const welcomeMessage = document.getElementById("welcomeMessage");
+    const moveForwardButton = document.getElementById("moveForwardButton");
+    const finalParagraph = document.getElementById("finalParagraph");
+    const yesButton = document.getElementById("yesButton");
+    const newMusic1 = document.getElementById("newMusic1");
+
+    const noButton = document.getElementById("noButton");
+    const responseMessage = document.getElementById("responseMessage");
+    const fireworkSticker = document.getElementById("fireworkSticker");
+
+    const nextStepButton = document.getElementById("nextStepButton");
+    const newMusic2 = document.getElementById("newMusic2");
+
+    const letterMessage = document.getElementById("letterMessage");
+    const celebrateButton = document.getElementById("celebrateButton");
+    const newMusic3 = document.getElementById("newMusic3");
+    const banner = document.getElementById("banner");
+    const happyAnniversary = document.getElementById("happyAnniversary");
+    const leftBalloons = document.getElementById("leftBalloons");
+    const rightBalloons = document.getElementById("rightBalloons");
+    const partyPopper = document.getElementById("partyPopper");
+    const cake = document.getElementById("cake");
+    const somethingMoreButton = document.getElementById("somethingMoreButton");
+        const iLoveYouMessage = document.getElementById("iLoveYouMessage");
+        const handInHandMessage = document.getElementById("handInHandMessage");
+        const wannaHugMe = document.getElementById("wannaHugMe");
+        const hugSticker = document.getElementById("hugSticker");
+        const anniversaryQuestion = document.getElementById("anniversaryQuestion");
+        const optionButtons = document.querySelectorAll(".optionButton");
+        const kissingEmoji = document.getElementById("kissingEmoji");
+    let isDark = false;
+
+    toggleButton.addEventListener("click", function () {
+      document.body.style.backgroundColor = isDark ? "white" : "black";
+      toggleButton.textContent = isDark ? "Turn Lights Off" : "Turn Lights On";
+      isDark = !isDark;
+      toggleButton.style.opacity = "0";
+
+      setTimeout(() => {
+        toggleButton.style.display = "none";
+        candleButton.style.display = "block";
+        candleButton.style.opacity = "1";
+      }, 500);
+    });
+    moveForwardButton.style.display = "none"; // Hide the button initially
+
+
+    candleButton.addEventListener("click", function () {
+      candleButton.style.opacity = "0";
+
+      setTimeout(() => {
+        candleButton.style.display = "none";
+        welcomeMessage.style.display = "block";
+        welcomeMessage.style.opacity = "1";
+
+        setTimeout(() => {
+          welcomeMessage.style.opacity = "0";
+
+          setTimeout(() => {
+            welcomeMessage.style.display = "none";
+            leftCandle.style.display = "block";
+            rightCandle.style.display = "block";
+            leftCandle.style.opacity = "1";
+            rightCandle.style.opacity = "1";
+            leftSticker.style.display = "block";
+            rightSticker.style.display = "block";
+            leftSticker.style.opacity = "1";
+            rightSticker.style.opacity = "1";
+            backgroundMusic.play();
+
+            setTimeout(() => {
+              message.style.display = "block";
+              message.style.opacity = "1";
+
+              // Show the "Move Forward" button after 10 seconds
+              setTimeout(() => {
+                moveForwardButton.style.display = "block";
+                moveForwardButton.style.opacity = "1";
+              }, 10000);
+            }, 3000);
+          }, 1000);
+        }, 2000);
+      }, 500);
+    });
+
+    moveForwardButton.addEventListener("click", function () {
+      // Hide candles, stickers, and message
+      leftCandle.style.opacity = "0";
+      rightCandle.style.opacity = "0";
+      leftSticker.style.opacity = "0";
+      rightSticker.style.opacity = "0";
+      message.style.opacity = "0";
+      moveForwardButton.style.opacity = "0";
+
+      setTimeout(() => {
+        leftCandle.style.display = "none";
+        rightCandle.style.display = "none";
+        leftSticker.style.display = "none";
+        rightSticker.style.display = "none";
+        message.style.display = "none";
+        moveForwardButton.style.display = "none";
+
+        // Show the final paragraph
+        finalParagraph.style.display = "block";
+        finalParagraph.style.opacity = "1";
+      }, 1000);
+      setTimeout(() => {
+        buttonsContainer.style.display = "block";
+        buttonsContainer.style.opacity = "1";
+      }, 2000);
+    }, 1000);
+
+    // Make "No" button move on hover from the start
+    noButton.addEventListener("mouseover", function () {
+      const randomX = Math.floor(Math.random() * 200) - 100;
+      const randomY = Math.floor(Math.random() * 200) - 100;
+      noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    });
+
+
+    yesButton.addEventListener("click", function () {
+      // Fade out question & buttons
+      finalParagraph.style.opacity = "0";
+      buttonsContainer.style.opacity = "0";
+      backgroundMusic.pause();
+      backgroundMusic.currentTime = 0; // Reset background music
+      newMusic1.play();
+
+
+
+      setTimeout(() => {
+
+
+        finalParagraph.style.display = "none";
+        buttonsContainer.style.display = "none";
+
+        // Show response message
+        responseMessage.textContent = "Now you are mine ❤️ Forever ♾️";
+        responseMessage.style.display = "block";
+        responseMessage.style.opacity = "1";
+        // Show firework sticker
+        fireworkSticker.style.display = "block";
+        fireworkSticker.style.opacity = "1";
+
+
+
+
+        setTimeout(() => {
+          nextStepButton.style.display = "block";
+          nextStepButton.style.opacity = "1";
+        }, 10000);
+      }, 1000);
+    });
+
+    nextStepButton.addEventListener("click", function () {
+      responseMessage.style.opacity = "0";
+      fireworkSticker.style.opacity = "0";
+      nextStepButton.style.opacity = "0";
+      newMusic1.pause();
+      newMusic1.currentTime = 0;
+      newMusic2.play();
+
+      setTimeout(() => {
+        responseMessage.style.display = "none";
+        fireworkSticker.style.display = "none";
+        nextStepButton.style.display = "none";
+        // Show letter message and celebrate button
+        letterMessage.style.display = "block";
+        letterMessage.style.opacity = "1";
+        setTimeout(() => {
+          celebrateButton.style.display = "block";
+          celebrateButton.style.opacity = "1";
+        }, 10000); // 10 seconds delay
+      }, 1000);
+    });
+
+    celebrateButton.addEventListener("click", function () {
+      letterMessage.style.opacity = "0";
+      celebrateButton.style.opacity = "0";
+      newMusic2.pause();
+      newMusic2.currentTime = 0;
+      newMusic3.play();
+      setTimeout(() => {
+        letterMessage.style.display = "none";
+        celebrateButton.style.display = "none";
+        banner.style.display = "block";
+        banner.style.opacity = "1";
+        setTimeout(() => {
+          happyAnniversary.style.display = "block";
+          happyAnniversary.style.opacity = "1";
+          leftBalloons.style.display = "block";
+          leftBalloons.style.opacity = "1";
+          rightBalloons.style.display = "block";
+          rightBalloons.style.opacity = "1";
+          partyPopper.style.display = "block";
+          partyPopper.style.opacity = "1";
+          setTimeout(() => {
+            leftBalloons.style.opacity = "0";
+            rightBalloons.style.opacity = "0";
+            partyPopper.style.opacity = "0";
+            setTimeout(() => {
+              leftBalloons.style.display = "none";
+              rightBalloons.style.display = "none";
+              partyPopper.style.display = "none";
+              cake.style.display = "block";
+              cake.style.opacity = "1";
+
+              setTimeout(() => {
+                        somethingMoreButton.style.display = "block";
+                        somethingMoreButton.style.opacity = "1";
+                    }, 10000);
+
+            }, 1000);
+          }, 3000);
+        }, 2000);
+      }, 1000);
+
+      somethingMoreButton.addEventListener("click", function () {
+        banner.style.opacity = "0";
+        happyAnniversary.style.opacity = "0";
+        cake.style.opacity = "0";
+        somethingMoreButton.style.opacity = "0";
+
+       
+
+
+
+        setTimeout(() => {
+    banner.style.display = "none";
+    happyAnniversary.style.display = "none";
+    cake.style.display = "none";
+    somethingMoreButton.style.display = "none";
+
+    iLoveYouMessage.style.display = "block";
+    iLoveYouMessage.style.opacity = "1";
+
+    setTimeout(() => {
+        iLoveYouMessage.style.opacity = "0";
+
+        setTimeout(() => {
+            iLoveYouMessage.style.display = "none";
+            handInHandMessage.style.display = "block";
+            handInHandMessage.style.opacity = "1";
+
+            setTimeout(() => {
+                handInHandMessage.style.opacity = "0";
+
+                setTimeout(() => {
+                    handInHandMessage.style.display = "none";
+                    wannaHugMe.style.display = "block";
+                    wannaHugMe.style.opacity = "1";
+
+                    setTimeout(() => {
+                        wannaHugMe.style.opacity = "0";
+
+                        setTimeout(() => {
+                            wannaHugMe.style.display = "none";
+                            hugSticker.style.display = "block";
+                            hugSticker.style.opacity = "1";
+
+                            setTimeout(() => {
+                                hugSticker.style.opacity = "0";
+
+                                setTimeout(() => {
+                                    hugSticker.style.display = "none";
+                                    anniversaryQuestion.style.display = "block";
+                                    anniversaryQuestion.style.opacity = "1";
+
+                                    if (optionButtons && optionButtons.length > 0) {
+                                        optionButtons.forEach(button => button.style.display = "block");
+                                    } else {
+                                        console.error("optionButtons is not found or empty.");
+                                    }
+                                }, 2000);
+                            }, 5000);
+                        }, 2000);
+                    }, 5000);
+                }, 500);
+            }, 2000);
+        }, 1000);
+    }, 2000);
+}, 1000);
+
+// Ensure optionButtons exist before adding event listeners
+if (optionButtons && optionButtons.length > 0) {
+    optionButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            anniversaryQuestion.style.opacity = "0";
+            optionButtons.forEach(btn => btn.style.opacity = "0");
+
+            setTimeout(() => {
+                anniversaryQuestion.style.display = "none";
+                optionButtons.forEach(btn => btn.style.display = "none");
+                kissingEmoji.style.display = "block";
+                kissingEmoji.style.opacity = "1";
+
+                setTimeout(() => {
+                kissingEmoji.style.opacity = "0"; // Fade out the kissing emoji
+
+                setTimeout(() => {
+                  kissingEmoji.style.display = "none"; // Hide the kissing emoji
+                        let lovingWords = "with all my heart and soul,"; // Add your loving words here
+                        finalMessage.textContent = `Made this ${lovingWords} with endless love, from Rishav.`;
+                        finalMessage.style.display = "block";
+                        finalMessage.style.opacity = "1";
+                    }, 1000)
+
+                  }, 1000);
+
+            }, 1000);
+        }, { once: true }); // Ensures each button is clicked only once
+    });
+} else {
+    console.error("optionButtons is not found in the document.");
+}
+});
+});
+
+
+
+
+  </script>
+</body>
+
+</html>
