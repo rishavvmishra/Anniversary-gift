@@ -90,13 +90,13 @@
     #candleButton {
       padding: 10px 20px;
       font-size: 1.2em;
-      background-color: #db1111;
-      color: white;
+      background-color: #050101;
+      color: rgb(250, 214, 14);
       border: none;
       border-radius: 10px;
       cursor: pointer;
       transition: opacity 1s ease, transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 10px#db1111;
+      box-shadow: 0 4px 10px#daf411;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -104,9 +104,9 @@
     }
 
     #toggleButton:hover {
-      background-color: #db1111;
+      background-color: #363633;
       transform: translateX(-50%) scale(1.1);
-      box-shadow: #db1111;
+      box-shadow: #050101;
 
     }
 
@@ -197,7 +197,7 @@
     #responseMessage {
       font-size: 3em;
     }
-   
+
     #nextStepButton {
       background-color: ec0909;
       /* Pinkish-red color */
@@ -316,132 +316,175 @@
       height: 35%;
       background-image: url(Happy\ Party\ Sticker\ by\ ohdoodledoo.gif);
     }
-    #banner, #happyAnniversary, #leftBalloons, #rightBalloons, #partyPopper, #cake {
-  display: none;
-  opacity: 0;
+
+    #banner,
+    #happyAnniversary,
+    #leftBalloons,
+    #rightBalloons,
+    #partyPopper,
+    #cake {
+      display: none;
+      opacity: 0;
+    }
+
+    #somethingMoreButton {
+      background-color: #ff52e5;
+      color: rgb(6, 9, 12);
+      font-size: 1em;
+      font-weight: bold;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease, transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(232, 32, 142, 0.5);
+      position: absolute;
+      left: 80%;
+      top: 70%;
+      transform: translateX(-50%);
+    }
+
+    #somethingMoreButton:hover {
+      background-color: hsl(177, 97%, 59%);
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 6px 15px rgba(129, 179, 230, 0.7);
+    }
+
+    #iLoveYouMessage,
+    #handInHandMessage {
+      font-size: 3em;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #wannaHugMe {
+      font-size: 3em;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #hugSticker {
+      width: 200px;
+      height: 200px;
+      background-image: url(Assets/I\ Love\ You\ Kiss\ Sticker\ by\ Jin.gif);
+      /* Replace with your hug sticker URL */
+      background-size: cover;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #anniversaryQuestion {
+      font-size: 2em;
+      text-align: center;
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .optionButton {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: #826c75;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      display: block;
+      margin: 20px auto;
+      display: none;
+    }
+
+    .optionButton:hover {
+      background-color: #d20b0b;
+    }
+
+    #kissingEmoji {
+      font-size: 5em;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #finalMessage {
+      font-size: 2.5em;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #passwordPrompt {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    #passwordPrompt label,
+    #passwordPrompt input,
+    #passwordPrompt button,
+    #passwordPrompt p {
+      margin: 10px;
+      color: rgb(1, 0, 0);
+    }
+
+
+    #protectedContent {
+      display: none;
+    }
+    #password {
+  position: relative;
+  z-index: 1000;
 }
-#somethingMoreButton {
-            background-color: #ec0909;
-            color: rgb(232, 207, 207);
-            font-size: 1em;
-            font-weight: bold;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease, transform 0.3s ease, background-color 0.3s ease;
-            box-shadow: 0 4px 10px rgba(237, 15, 15, 0.5);
-            position: absolute;
-            left: 80%;
-            top: 70%;
-            transform: translateX(-50%);
-        }
-
-        #somethingMoreButton:hover {
-            background-color: hsl(0, 98%, 49%);
-            transform: translateX(-50%) scale(1.1);
-            box-shadow: 0 6px 15px rgba(254, 21, 21, 0.7);
-        }
-
-        #iLoveYouMessage,
-        #handInHandMessage {
-            font-size: 3em;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-        #wannaHugMe {
-            font-size: 3em;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        #hugSticker {
-            width: 200px;
-            height: 200px;
-            background-image: url(Assets/I\ Love\ You\ Kiss\ Sticker\ by\ Jin.gif); /* Replace with your hug sticker URL */
-            background-size: cover;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        #anniversaryQuestion {
-            font-size: 2em;
-            text-align: center;
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translateX(-50%);
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .optionButton {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #826c75;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-            display: block;
-            margin: 20px auto;
-            display: none; 
-        }
-
-        .optionButton:hover {
-            background-color: #36d73e;
-        }
-
-        #kissingEmoji {
-            font-size: 5em;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-        #finalMessage {
-            font-size: 2.5em;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-
-
   </style>
 </head>
 
 <body>
+  <div id="passwordPrompt">
+    <label for="password">Enter Password🔒:</label>
+    <input type="password" id="password">
+    <button onclick="checkPassword()">Submit</button>
+    <p id="error" style="color: red;"></p>
+</div>
+
+  <div id="protectedContent">
   <button id="toggleButton">Turn Light Off </button>
   <button id="candleButton"> Tap for candle light </button>
   <div id="leftCandle" class="candle"></div>
@@ -452,9 +495,10 @@
   <audio id="newMusic1" src="pehla-pyaar-kabir-singh-320-kbps_XXUlo7q9.mp3"></audio>
   <audio id="newMusic2" src="128-Jeena Jeena - Badlapur 128 Kbps (mp3cut.net).mp3"></audio>
   <audio id="newMusic3" src="kinna-sona-bhaag-johnny-128-kbps_nUnZ5IvI.mp3"></audio>
-  <div id="welcomeMessage">Welcome Motu!</div>
+  <div id="welcomeMessage">"Welcome, Motu! I know we're in a long-distance to celebrate Our Anniversary, so I've put all
+    my effort into this to make you feel like I'm right by your side, Just follow every step with vibing music." </div>
   <div id="message">Just like these candles, you light up my life, my love.</div>
-  <button id="moveForwardButton">Ek Question pucchu ? </button>
+  <button id="moveForwardButton">Ek Cheez pucchu ? </button>
   <div id="finalParagraph">Do You Love Me ?</div>
   <!-- YES & NO Buttons -->
   <div id="buttonsContainer">
@@ -469,7 +513,8 @@
   <div id="responseMessage"></div>
   <div id="fireworkSticker"></div> <!-- Firework sticker container -->
   <button id="nextStepButton" style="display: none; opacity: 0;">Ab Aage Badhe Meri Jaan 😏 </button>
-  <div id="letterMessage" style="display: none;">Warning⚠️: Is gaane mein mere saare unexpressed emotions hain. Side effects mein spontaneous hugging aur uncontrollable smiling ho sakta hai. Bas sunte jao </div> 
+  <div id="letterMessage" style="display: none;">Warning⚠️: Is gaane mein mere saare unexpressed emotions hain. Side
+    effects mein spontaneous hugging aur uncontrollable smiling ho sakta hai. Bas sunte jao </div>
   <button id="celebrateButton">Let's Celebrate Our 3rd Anniversary😄</button>
   <div id="banner" class="sticker"></div>
   <div id="happyAnniversary" class="sticker"></div>
@@ -478,19 +523,36 @@
   <div id="partyPopper" class="sticker"></div>
   <div id="cake" class="sticker"></div>
   <button id="somethingMoreButton">Something More👉</button>
-    <div id="iLoveYouMessage">I Love You Forever palak❤️ </div>
-    <div id="handInHandMessage">Hand in Hand, You and Me, Till the End ♾️</div>
-    <div id="wannaHugMe">Wanna Hug Me?</div>
-    <div id="hugSticker"></div>
-    <div id="anniversaryQuestion">Did you like your anniversary gift?</div>
-    <button class="optionButton" data-option="good">Good</button>
-    <button class="optionButton" data-option="veryGood">Very Good</button> 
-    <button class="optionButton" data-option="excellent">Excellent</button>
-    <button class="optionButton" data-option="bestEver">Best Ever!</button>
-    <div id="kissingEmoji">😘</div>
-    <div id="finalMessage">Made with endless love, just for you, from Rishav✨. </div>
-
+  <div id="iLoveYouMessage">I Love You Forever palak❤️ </div>
+  <div id="handInHandMessage">Hand in Hand, You and Me, Till the End ♾️</div>
+  <div id="wannaHugMe">Wanna Hug Me?</div>
+  <div id="hugSticker"></div>
+  <div id="anniversaryQuestion">Did you like your anniversary suprize?</div>
+  <button class="optionButton" data-option="good">Impressed</button>
+  <button class="optionButton" data-option="veryGood">Very Good</button>
+  <button class="optionButton" data-option="excellent">Aankh Mai Aasu Aagye🥹</button>
+  <button class="optionButton" data-option="bestEver">Best Ever!</button>
+  <div id="kissingEmoji">😘</div>
+  <div id="finalMessage">Made with endless love, just for you, from Rishav✨. </div>
+  </div>
+    
   <script>
+
+    function checkPassword() {
+      const enteredPassword = document.getElementById("password").value;
+      const correctPassword = "parth0810"; // Replace with your actual password!
+
+      if (enteredPassword === correctPassword) {
+        document.getElementById("passwordPrompt").style.display = "none";
+        document.getElementById("protectedContent").style.display = "block";
+        initializeEventListeners();
+      } else {
+        document.getElementById("error").textContent = "bhaag yaha se Chonge😛";
+      }
+    }
+
+    function initializeEventListeners() {
+    
     const toggleButton = document.getElementById("toggleButton");
     const candleButton = document.getElementById("candleButton");
     const leftCandle = document.getElementById("leftCandle");
@@ -522,14 +584,16 @@
     const partyPopper = document.getElementById("partyPopper");
     const cake = document.getElementById("cake");
     const somethingMoreButton = document.getElementById("somethingMoreButton");
-        const iLoveYouMessage = document.getElementById("iLoveYouMessage");
-        const handInHandMessage = document.getElementById("handInHandMessage");
-        const wannaHugMe = document.getElementById("wannaHugMe");
-        const hugSticker = document.getElementById("hugSticker");
-        const anniversaryQuestion = document.getElementById("anniversaryQuestion");
-        const optionButtons = document.querySelectorAll(".optionButton");
-        const kissingEmoji = document.getElementById("kissingEmoji");
+    const iLoveYouMessage = document.getElementById("iLoveYouMessage");
+    const handInHandMessage = document.getElementById("handInHandMessage");
+    const wannaHugMe = document.getElementById("wannaHugMe");
+    const hugSticker = document.getElementById("hugSticker");
+    const anniversaryQuestion = document.getElementById("anniversaryQuestion");
+    const optionButtons = document.querySelectorAll(".optionButton");
+    const kissingEmoji = document.getElementById("kissingEmoji");
+
     let isDark = false;
+  
 
     toggleButton.addEventListener("click", function () {
       document.body.style.backgroundColor = isDark ? "white" : "black";
@@ -580,7 +644,7 @@
               }, 10000);
             }, 3000);
           }, 1000);
-        }, 2000);
+        }, 10000);
       }, 500);
     });
 
@@ -628,7 +692,6 @@
       newMusic1.play();
 
 
-
       setTimeout(() => {
 
 
@@ -649,7 +712,7 @@
         setTimeout(() => {
           nextStepButton.style.display = "block";
           nextStepButton.style.opacity = "1";
-        }, 10000);
+        }, 20000);
       }, 1000);
     });
 
@@ -671,7 +734,7 @@
         setTimeout(() => {
           celebrateButton.style.display = "block";
           celebrateButton.style.opacity = "1";
-        }, 10000); // 10 seconds delay
+        }, 20000); // 10 seconds delay
       }, 1000);
     });
 
@@ -707,9 +770,9 @@
               cake.style.opacity = "1";
 
               setTimeout(() => {
-                        somethingMoreButton.style.display = "block";
-                        somethingMoreButton.style.opacity = "1";
-                    }, 10000);
+                somethingMoreButton.style.display = "block";
+                somethingMoreButton.style.opacity = "1";
+              }, 5000);
 
             }, 1000);
           }, 3000);
@@ -722,102 +785,103 @@
         cake.style.opacity = "0";
         somethingMoreButton.style.opacity = "0";
 
-       
-
-
 
         setTimeout(() => {
-    banner.style.display = "none";
-    happyAnniversary.style.display = "none";
-    cake.style.display = "none";
-    somethingMoreButton.style.display = "none";
+          banner.style.display = "none";
+          happyAnniversary.style.display = "none";
+          cake.style.display = "none";
+          somethingMoreButton.style.display = "none";
 
-    iLoveYouMessage.style.display = "block";
-    iLoveYouMessage.style.opacity = "1";
+          iLoveYouMessage.style.display = "block";
+          iLoveYouMessage.style.opacity = "1";
 
-    setTimeout(() => {
-        iLoveYouMessage.style.opacity = "0";
-
-        setTimeout(() => {
-            iLoveYouMessage.style.display = "none";
-            handInHandMessage.style.display = "block";
-            handInHandMessage.style.opacity = "1";
+          setTimeout(() => {
+            iLoveYouMessage.style.opacity = "0";
 
             setTimeout(() => {
+              iLoveYouMessage.style.display = "none";
+              handInHandMessage.style.display = "block";
+              handInHandMessage.style.opacity = "1";
+
+              setTimeout(() => {
                 handInHandMessage.style.opacity = "0";
 
                 setTimeout(() => {
-                    handInHandMessage.style.display = "none";
-                    wannaHugMe.style.display = "block";
-                    wannaHugMe.style.opacity = "1";
+                  handInHandMessage.style.display = "none";
+                  wannaHugMe.style.display = "block";
+                  wannaHugMe.style.opacity = "1";
+
+                  setTimeout(() => {
+                    wannaHugMe.style.opacity = "0";
 
                     setTimeout(() => {
-                        wannaHugMe.style.opacity = "0";
+                      wannaHugMe.style.display = "none";
+                      hugSticker.style.display = "block";
+                      hugSticker.style.opacity = "1";
+
+                      setTimeout(() => {
+                        hugSticker.style.opacity = "0";
 
                         setTimeout(() => {
-                            wannaHugMe.style.display = "none";
-                            hugSticker.style.display = "block";
-                            hugSticker.style.opacity = "1";
+                          hugSticker.style.display = "none";
+                          anniversaryQuestion.style.display = "block";
+                          anniversaryQuestion.style.opacity = "1";
 
-                            setTimeout(() => {
-                                hugSticker.style.opacity = "0";
-
-                                setTimeout(() => {
-                                    hugSticker.style.display = "none";
-                                    anniversaryQuestion.style.display = "block";
-                                    anniversaryQuestion.style.opacity = "1";
-
-                                    if (optionButtons && optionButtons.length > 0) {
-                                        optionButtons.forEach(button => button.style.display = "block");
-                                    } else {
-                                        console.error("optionButtons is not found or empty.");
-                                    }
-                                }, 2000);
-                            }, 5000);
+                          if (optionButtons && optionButtons.length > 0) {
+                            optionButtons.forEach(button => button.style.display = "block");
+                          } else {
+                            console.error("optionButtons is not found or empty.");
+                          }
                         }, 2000);
-                    }, 5000);
+                      }, 2000);
+                    }, 2000);
+                  }, 3000);
                 }, 500);
-            }, 2000);
+              }, 3000);
+            }, 1000);
+          }, 3000);
         }, 1000);
-    }, 2000);
-}, 1000);
 
-// Ensure optionButtons exist before adding event listeners
-if (optionButtons && optionButtons.length > 0) {
-    optionButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            anniversaryQuestion.style.opacity = "0";
-            optionButtons.forEach(btn => btn.style.opacity = "0");
+        // Ensure optionButtons exist before adding event listeners
+        if (optionButtons && optionButtons.length > 0) {
+          optionButtons.forEach(button => {
+            button.addEventListener("click", function () {
+              anniversaryQuestion.style.opacity = "0";
+              optionButtons.forEach(btn => btn.style.opacity = "0");
 
-            setTimeout(() => {
+              setTimeout(() => {
                 anniversaryQuestion.style.display = "none";
                 optionButtons.forEach(btn => btn.style.display = "none");
                 kissingEmoji.style.display = "block";
                 kissingEmoji.style.opacity = "1";
 
                 setTimeout(() => {
-                kissingEmoji.style.opacity = "0"; // Fade out the kissing emoji
+                  kissingEmoji.style.opacity = "0"; // Fade out the kissing emoji
 
-                setTimeout(() => {
-                  kissingEmoji.style.display = "none"; // Hide the kissing emoji
-                        let lovingWords = "with all my heart and soul,"; // Add your loving words here
-                        finalMessage.textContent = `Made this ${lovingWords} with endless love, from Rishav.`;
-                        finalMessage.style.display = "block";
-                        finalMessage.style.opacity = "1";
-                    }, 1000)
+                  setTimeout(() => {
+                    kissingEmoji.style.display = "none"; // Hide the kissing emoji
+                    let lovingWords = "with all my heart and soul,"; // Add your loving words here
+                    finalMessage.textContent = `Made this ${lovingWords} with endless love, from Rishav.`;
+                    finalMessage.style.display = "block";
+                    finalMessage.style.opacity = "1";
+                  }, 1000)
 
-                  }, 1000);
+                }, 1000);
 
-            }, 1000);
-        }, { once: true }); // Ensures each button is clicked only once
+              }, 1000);
+            }, { once: true }); // Ensures each button is clicked only once
+          });
+        } else {
+          console.error("optionButtons is not found in the document.");
+
+        }
+
+      });
+    
+
     });
-} else {
-    console.error("optionButtons is not found in the document.");
-}
-});
-});
-
-
+  }
+    
 
 
   </script>
